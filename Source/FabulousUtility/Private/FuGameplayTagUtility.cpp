@@ -4,6 +4,11 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FuGameplayTagUtility)
 
+FGameplayTag UFuGameplayTagUtility::RequestGameplayTag(const FString& TagName)
+{
+	return FGameplayTag::RequestGameplayTag(FName(*TagName));
+}
+
 FName UFuGameplayTagUtility::GetSimpleTagName(const FGameplayTag& Tag)
 {
 	const auto TagNode{UGameplayTagsManager::Get().FindTagNode(Tag)};
