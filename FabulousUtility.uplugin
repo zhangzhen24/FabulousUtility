@@ -5,11 +5,11 @@
 	"FriendlyName": "Fabulous Utility",
 	"Description": "A collection of useful functions, nodes, and other things that can come in handy in Unreal Engine projects of any type.",
 	"Category": "Other",
-	"CreatedBy": "Sixze",
-	"CreatedByURL": "https://github.com/Sixze",
-	"DocsURL": "https://github.com/Sixze/FabulousUtility",
+	"CreatedBy": "zhangzhen24",
+	"CreatedByURL": "https://github.com/zhangzhen24",
+	"DocsURL": "",
 	"MarketplaceURL": "",
-	"SupportURL": "https://github.com/Sixze/FabulousUtility/discussions",
+	"SupportURL": "",
 	"EngineVersion": "5.5.0",
 	"EnabledByDefault": true,
 	"CanContainContent": false,
@@ -45,6 +45,11 @@
 		{
 			"Name": "FabulousOnline",
 			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "FabulousEditor",
+			"Type": "Editor",
 			"LoadingPhase": "Default"
 		}
 	],
