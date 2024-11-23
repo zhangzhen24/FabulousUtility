@@ -14,6 +14,19 @@ class FABULOUSUTILITY_API UFuPhysicsUtility : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 
 public:
+	UFUNCTION(BlueprintPure, Category = "Fabulous Utility|Physics Utility", Meta = (ReturnDisplayName = "CollisionChannel"))
+	static ECollisionChannel K2_ConvertTraceTypeToCollisionChannel(ETraceTypeQuery TraceType);
+
+	UFUNCTION(BlueprintPure, Category = "Fabulous Utility|Physics Utility", Meta = (ReturnDisplayName = "CollisionChannel"))
+	static ECollisionChannel K2_ConvertObjectTypeToCollisionChannel(EObjectTypeQuery ObjectType);
+
+	UFUNCTION(BlueprintPure, Category = "Fabulous Utility|Physics Utility", Meta = (ReturnDisplayName = "ObjectTypeQuery"))
+	static EObjectTypeQuery K2_ConvertToObjectType(ECollisionChannel CollisionChannel);
+
+	UFUNCTION(BlueprintPure, Category = "Fabulous Utility|Physics Utility", Meta = (ReturnDisplayName = "ObjectTypeQuery"))
+	static ETraceTypeQuery K2_ConvertToTraceType(ECollisionChannel CollisionChannel);
+
+	
 	static void FindReachableActorsInRadius(const UObject* WorldContext, const FVector& Location,
 	                                        float Radius, const FCollisionProfileName& CollisionProfile,
 	                                        const TFunctionRef<bool(const FOverlapResult& Overlap)>& FilterPredicate,
@@ -38,8 +51,8 @@ public:
 	static bool LineTraceBone(UPrimitiveComponent* Primitive, FName BoneName,
 	                          const FVector& TraceStart, const FVector& TraceEnd, FHitResult& Hit);
 
-	UFUNCTION(BlueprintCallable, Category = "Fabulous Utility|Physics Utility", Meta = (WorldContext = "WorldContext",
-		AutoCreateRefTerm = "Location, Rotation, Extent, IgnoreActors", ReturnDisplayName = "Success"))
+	UFUNCTION(BlueprintCallable, Category = "Fabulous Utility|Physics Utility",
+		Meta = (WorldContext = "WorldContext", AutoCreateRefTerm = "Location, Rotation, Extent, IgnoreActors", ReturnDisplayName = "Success"))
 	static bool BoxOverlapActors(const UObject* WorldContext, const FVector& Location, const FRotator& Rotation,
 	                             const FVector& Extent, const TArray<TEnumAsByte<ECollisionChannel>>& CollisionChannels,
 	                             const TArray<AActor*>& IgnoreActors, TArray<AActor*>& Actors);

@@ -4,8 +4,30 @@
 #include "Components/PrimitiveComponent.h"
 #include "Engine/OverlapResult.h"
 #include "Engine/World.h"
+#include "Runtime/Engine/Classes/Engine/EngineTypes.h"
+
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FuPhysicsUtility)
+
+ECollisionChannel UFuPhysicsUtility::K2_ConvertTraceTypeToCollisionChannel(ETraceTypeQuery TraceType)
+{
+	return UEngineTypes::ConvertToCollisionChannel(TraceType);
+}
+
+ECollisionChannel UFuPhysicsUtility::K2_ConvertObjectTypeToCollisionChannel(EObjectTypeQuery ObjectType)
+{
+	return UEngineTypes::ConvertToCollisionChannel(ObjectType);
+}
+
+EObjectTypeQuery UFuPhysicsUtility::K2_ConvertToObjectType(ECollisionChannel CollisionChannel)
+{
+	return UEngineTypes::ConvertToObjectType(CollisionChannel);
+}
+
+ETraceTypeQuery UFuPhysicsUtility::K2_ConvertToTraceType(ECollisionChannel CollisionChannel)
+{
+	return UEngineTypes::ConvertToTraceType(CollisionChannel);
+}
 
 void UFuPhysicsUtility::FindReachableActorsInRadius(const UObject* WorldContext, const FVector& Location,
                                                     const float Radius, const FCollisionProfileName& CollisionProfile,
